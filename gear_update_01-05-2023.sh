@@ -10,7 +10,7 @@ rm gear-nightly-linux-x86_64.tar.xz
 
 sudo systemctl start gear
 
-sleep 15
+sleep 20
 
 NODENAME_GEAR=$(grep -Po '(?<=--name\s)\S+(?=\s*--execution)' /etc/systemd/system/gear.service)
 
@@ -24,10 +24,10 @@ Type=simple
 User=$USER
 WorkingDirectory=$HOME
 ExecStart=$HOME/gear \
-        --name $NODENAME_GEAR \
-        --execution wasm \
-	--port 31333 \
-  --telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0' \
+--name $NODENAME_GEAR \
+--execution wasm \
+--port 31333 \
+--telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0' \
 
 
 Restart=always
