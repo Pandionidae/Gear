@@ -38,10 +38,6 @@ LimitNOFILE=10000
 WantedBy=multi-user.target
 EOF
 
-# cd /root/.local/share/gear/chains
-# mkdir -p gear_staging_testnet_v7/network/
-# sudo cp gear_staging_testnet_v6/network/secret_ed25519 gear_staging_testnet_v7/network/secret_ed25519  &>/dev/null
-
 
 sudo systemctl daemon-reload
 sudo systemctl restart gear
