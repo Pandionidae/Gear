@@ -40,3 +40,5 @@ EOF
 
 sudo systemctl daemon-reload
 sudo systemctl restart gear
+
+rm -rf $HOME/gear
