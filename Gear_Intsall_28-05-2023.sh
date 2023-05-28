@@ -1,12 +1,19 @@
 cd $HOME
 source ~/.profile
-if [ -z $NODENAME_GEAR ]; then
-        read -p "Enter your node name: " NODENAME_GEAR
-        echo 'export NODENAME='$NODENAME_GEAR >> $HOME/.profile
+if [ -z $NODE_GEAR ]; then
+        read -p "Enter your node name: " NODE_GEAR
+        echo 'export NODE_GEAR='$NODE_GEAR >> $HOME/.profile
 fi
-echo 'your node name: ' $NODENAME_GEAR
+echo 'your node name: ' $NODE_GEAR
 sleep 1
-curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/rust.sh | bash 
+
+sudo apt update
+sudo apt install curl make clang pkg-config libssl-dev build-essential git mc jq unzip wget -y
+sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
+source $HOME/.cargo/env
+sleep 1
+
+
 sudo apt install --fix-broken -y 
 sudo apt install git mc clang curl jq htop net-tools libssl-dev llvm libudev-dev -y 
 source $HOME/.profile 
@@ -37,9 +44,9 @@ Type=simple
 User=$USER
 WorkingDirectory=$HOME
 ExecStart=$HOME/gear \
-      --name $NODENAME_GEAR \
+      --name $NODE_GEAR \
       --execution wasm \
-    	--port 31333 \
+      --port 31333 \
       --telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0' \
 	
 
