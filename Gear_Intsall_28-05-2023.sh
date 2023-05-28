@@ -6,20 +6,20 @@ if [ -z $NODENAME_GEAR ]; then
 fi
 echo 'your node name: ' $NODENAME_GEAR
 sleep 1
-curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/rust.sh | bash &>/dev/null
-sudo apt install --fix-broken -y &>/dev/null
-sudo apt install git mc clang curl jq htop net-tools libssl-dev llvm libudev-dev -y &>/dev/null
-source $HOME/.profile &>/dev/null
-source $HOME/.bashrc &>/dev/null
-source $HOME/.cargo/env &>/dev/null
+curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/rust.sh | bash 
+sudo apt install --fix-broken -y 
+sudo apt install git mc clang curl jq htop net-tools libssl-dev llvm libudev-dev -y 
+source $HOME/.profile 
+source $HOME/.bashrc 
+source $HOME/.cargo/env 
 sleep 1
 
 
 
-wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz &>/dev/null
-tar xvf gear-nightly-linux-x86_64.tar.xz &>/dev/null
-rm gear-nightly-linux-x86_64.tar.xz &>/dev/null
-chmod +x $HOME/gear &>/dev/null
+wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz 
+tar xvf gear-nightly-linux-x86_64.tar.xz 
+rm gear-nightly-linux-x86_64.tar.xz 
+chmod +x $HOME/gear 
 
 
 sudo tee <<EOF >/dev/null /etc/systemd/journald.conf
@@ -52,7 +52,7 @@ WantedBy=multi-user.target
 EOF
 
 
-sudo systemctl restart systemd-journald &>/dev/null
-sudo systemctl daemon-reload &>/dev/null
-sudo systemctl enable gear &>/dev/null
-sudo systemctl restart gear &>/dev/null
+sudo systemctl restart systemd-journald 
+sudo systemctl daemon-reload 
+sudo systemctl enable gear 
+sudo systemctl restart gear 
