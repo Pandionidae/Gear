@@ -6,7 +6,6 @@ if [ -z $NODENAME_GEAR ]; then
 fi
 echo 'your node name: ' $NODENAME_GEAR
 sleep 1
-curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/ufw.sh | bash &>/dev/null
 curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/rust.sh | bash &>/dev/null
 sudo apt install --fix-broken -y &>/dev/null
 sudo apt install git mc clang curl jq htop net-tools libssl-dev llvm libudev-dev -y &>/dev/null
